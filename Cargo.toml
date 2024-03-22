@@ -7,6 +7,7 @@ edition = "2021"
 
 [dependencies]
 chrono = "0.4.35" # Libreria de fecha y tiempo
+dotenv = "0.15.0"
 poem = "2.0.1" # web framework
 poem-openapi = {version = "4.0.1", features = ["swagger-ui"]} # poem implementacion para openapi swagger
 sea-orm = {version = "0.12.15", features = ["sqlx-mysql", "runtime-tokio-rustls", "with-chrono", "with-json", "macros"]} # ORM para mysql / sqlite/ postgre
