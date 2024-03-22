@@ -22,7 +22,7 @@ Editar el archivo 01.sql
 `docker compose up -d`
 
 ### Generar entidades para el orm.
-con ser-orm-cli instalado, ejecutar el comando: `sea-orm-cli generate entity -o src/db/entidades`
+con ser-orm-cli instalado, ejecutar el comando: `sea-orm-cli generate entity -o src/db/entidades --with-serde both`
 
 
 ## Extensiones para vscode:

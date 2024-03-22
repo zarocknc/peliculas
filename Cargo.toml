@@ -6,11 +6,13 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow = "1.0.81"
 chrono = "0.4.35" # Libreria de fecha y tiempo
 dotenv = "0.15.0"
-poem = "2.0.1" # web framework
+poem = {version = "2.0.1", features = ["anyhow"]} # web framework
 poem-openapi = {version = "4.0.1", features = ["swagger-ui"]} # poem implementacion para openapi swagger
 sea-orm = {version = "0.12.15", features = ["sqlx-mysql", "runtime-tokio-rustls", "with-chrono", "with-json", "macros"]} # ORM para mysql / sqlite/ postgre
-serde = "1.0.197" # framework para serializar y deserializar (comunicacion entre otros programa, generalmente json)
+serde = {version = "1.0.197", features = ["derive"]}
+serde_json = "1.0.114"
 tokio = {version = "1.36.0", features = ["full"]} # runtime para aplicaciones asyncronas
 uuid = {version = "1.8.0", features = ["v4", "fast-rng", "macro-diagnostics"]} # generar uuid
