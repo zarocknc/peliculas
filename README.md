@@ -6,7 +6,7 @@
 
 ## Requisitos para desarrollo
 - docker (mysql) https://www.docker.com/products/docker-desktop/
-- Rust Lang
+- Rust Lang https://www.rust-lang.org/es/learn/get-started
 - sea orm cli  ( Se instala con el comando `cargo install sea-orm-cli`)
 
 
@@ -23,3 +23,9 @@ Editar el archivo 01.sql
 
 ### Generar entidades para el orm.
 con ser-orm-cli instalado, ejecutar el comando: `sea-orm-cli generate entity -o src/db/entidades`
+
+
+## Extensiones para vscode:
+- `ms-azuretools.vscode-docker`
+- `tamasfe.even-better-toml`
+- `rust-lang.rust-analyzer`
