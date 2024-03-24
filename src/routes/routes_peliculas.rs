@@ -3,7 +3,7 @@ use poem_openapi::{OpenApi, payload::Json};
 use serde::{Deserialize, Serialize};
 
 
-use crate::db::entidades::{self, peliculas::Model, prelude::Peliculas};
+use crate::db::entidades::{self, peliculas::{self, Model}, prelude::Peliculas};
 use sea_orm::{DatabaseConnection, EntityTrait};
 
 use super::ApiTags;
@@ -22,14 +22,13 @@ struct PeliculasResponse {
 
 #[OpenApi]
 impl PeliculasApi {
-    #[oai( path = "/peliculas", method = "get", tag = ApiTags::Peliculas)]
+    #[oai( path = "/peliculas", method = "post", tag = ApiTags::Peliculas)]
     async fn buscar_pelicula(
         &self,
         data: Data<&DatabaseConnection>
-    ) -> Json<Vec<Model>> {
+    ) -> Json<Vec<peliculas::Model>> {
         let pool = data.0.to_owned();
-        let pelis =  Peliculas::find().all(data.0).await.unwrap();
-        Json(pelis);
-        todo!()
+        let pelis: Vec<peliculas::Model> =  Peliculas::find().all(data.0).await.unwrap();
+        Json(pelis)
     }
 }
