@@ -1,9 +1,9 @@
-use poem::web::{Data, Json};
-use poem_openapi::OpenApi;
+use poem::web::Data;
+use poem_openapi::{OpenApi, payload::Json};
 use serde::{Deserialize, Serialize};
 
 
-use crate::db::entidades::prelude::Peliculas;
+use crate::db::entidades::{self, peliculas::Model, prelude::Peliculas};
 use sea_orm::{DatabaseConnection, EntityTrait};
 
 use super::ApiTags;
@@ -26,9 +26,10 @@ impl PeliculasApi {
     async fn buscar_pelicula(
         &self,
         data: Data<&DatabaseConnection>
-    )  {
+    ) -> Json<Vec<Model>> {
         let pool = data.0.to_owned();
         let pelis =  Peliculas::find().all(data.0).await.unwrap();
-        Ok(Json(pelis))
+        Json(pelis);
+        todo!()
     }
 }
